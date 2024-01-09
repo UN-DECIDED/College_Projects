@@ -1,0 +1,121 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+//lintik na functions
+void border();
+void enterNumber(double &n1, double &n2);
+void lobby(int &ope);
+double add(double n1,double n2);
+double subtract(double n1,double n2);
+double multiply(double n1,double n2);
+double divide(double n1,double n2);
+double modulo(double n1,double n2);
+
+//main functions
+int main()
+{
+    double n1,n2,result;
+    
+    int ope;
+    char retry;
+    do{
+
+        border();
+        lobby(ope);
+        border();
+        
+        switch(ope){
+            case 1:
+                enterNumber(n1,n2);
+                result = add(n1,n2);
+                cout <<"Result: "<< n1 <<" + " << n2 <<" = "<< result<< endl;
+            break;
+            case 2:
+                enterNumber(n1,n2);
+                result = subtract(n1,n2);
+                cout <<"Result: "<< n1 <<" - " << n2 <<" = "<< result<< endl;        
+            break;
+            case 3:
+                enterNumber(n1,n2);
+                result = multiply(n1,n2);
+                cout <<"Result: "<< n1 <<" * " << n2 <<" = "<< result<< endl;        
+            break;
+            case 4:
+                enterNumber(n1,n2);
+                result = divide(n1,n2);
+                cout <<"Result: "<< n1 << " / " << n2 <<" = "<< result<< endl;        
+            break;     
+            case 5:
+                enterNumber(n1,n2);
+                result = modulo(n1,n2);
+                cout <<"Result: "<< n1 << " % " << n2 <<" = "<< result<< endl;        
+            break;
+            case 6:
+                cout << "Thank you for using my 0&1";
+                return 0;
+            break;
+            
+            default:
+                cout<< "How stupid of you not to follow MY RULES\n"
+                    << "here try again\n\n";
+        }
+        border();
+        
+        cout<< "Do you want to continue?? "
+            <<"\n[Y]es"
+            <<"[N]o\n"
+            <<"::   ::\b\b\b\b";
+        cin >> retry;
+        
+    }while(retry == 'Y' || retry == 'y');
+
+    
+    return 0;
+}
+
+void border(){
+    for(int i=0; i<50;i++){
+        cout << "*";
+    }
+    cout << endl;
+}
+
+void lobby(int &ope){
+    cout<< "--Choose an Operator--\n\n"
+        << "[1] - Add\n"
+        <<"[2] - Subtract\n"
+        <<"[3] - Multiply\n"
+        <<"[4] - Divide\n"
+        <<"[5] - Modulo\n"
+        <<"[6] - Exit\n"
+        <<"::   ::\b\b\b\b";
+    cin >> ope;    
+}
+
+void enterNumber(double &n1,double &n2){
+    cout << "Enter 2 number: \n";
+    cin >> n1 >>n2;
+    border();           
+}
+
+double add(double n1,double n2){
+    // double result = n1+n2;
+    return n1 + n2;
+}
+
+double subtract(double n1,double n2){
+    return n1 - n2;
+}
+
+double multiply(double n1,double n2){
+    return n1 * n2;
+}
+
+double divide(double n1,double n2){
+    return n1 / n2;
+}
+
+double modulo(double n1,double n2){
+    return fmod(n1,n2);
+}

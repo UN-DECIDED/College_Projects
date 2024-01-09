@@ -1,0 +1,117 @@
+#include <iostream>
+#include <math.h>
+#include <conio.h>
+#include <iomanip>
+using namespace std;
+
+float Area_Rectangle(float l, float w);
+float Area_Circle(float r);
+void Area_Square(double s);
+void Area_Triangle(double y1,double y2, double x1, double x2);
+
+int main()
+{
+    int opt;
+    float A;
+    
+    do{
+        cout<< "S H A P E S\n"
+        	<< "[1] - Rectangle\n"
+        	<< "[2] - Circle\n"
+        	<< "[3] - Square\n"
+        	<< "[4] - Triangle\n"
+            << "[0] - Exit\n"
+        	<< "Enter your choice: ";
+        cin >> opt;
+        
+        switch(opt){
+            case 1:
+                float length,width;
+                cout << "\nEnter Length: ";
+                cin >> length;
+                cout << "Enter Width: ";
+                cin >> width;
+                
+                A = Area_Rectangle(length,width);
+                
+                cout << fixed << setprecision(2);
+                cout << "\nThe area of the rectangle is " << A;
+            break;
+            
+            case 2:
+                float radius;
+                cout << "Enter radius: ";
+                cin >> radius;
+                
+                A = Area_Circle(radius);
+                
+                cout << fixed << setprecision(2);
+                cout << "The area of the Circle is " << A;
+            break;
+            
+            case 3:
+            	float side;
+            	cout << "Enter Side: ";
+            	cin >> side;
+            	
+            	Area_Square(side);
+            	
+            case 4:
+            	double y1,y2,x1,x2;
+    
+			    cout << "READ BETWEEN THE LINES \n";
+			    
+			    //sides of triangle
+			    cout << "Enter x1: ";
+			    cin >> x1;
+			    cout << "Enter y1: ";
+			    cin >> y1;
+			    cout << "Enter x2: ";
+			    cin >> x2;
+			    cout << "Enter y2: ";
+			    cin >> y2;
+			            
+			    void Area_Triangle(y1,y2,x1,x2);
+			    
+            case 0: 
+                return 0;
+            break;
+            
+            default: 
+                cout << "You've entered incorrect option...";
+        }
+        
+        cout << "\n\nPress any key to continue...\n\n";
+        getch();
+        
+    }while(opt != 0 );
+
+    cout << "\n Thank you for using the program.";
+
+    return 0;
+}
+
+void Area_Triangle(double y1,double y2, double x1, double x2){
+	double sl,inter;
+
+    //caluclation for Slope of a line
+    sl = (y2-y1)/(x2-x1);
+    //formula for intercept line 1 & 2
+    inter = y1-sl*x1;
+    cout << "The line with endpoints of : Y = " << sl <<"X +"<<inter;
+}
+
+void Area_Square(double s){
+	cout <<"The Area of Square is: " <<pow(s,2);
+}
+
+float Area_Rectangle(float l, float w){
+    return l*w;
+}
+
+float Area_Circle(float r){
+    float AREA; 
+    const float PI = 3.14;
+    AREA = PI * r * r;
+    return AREA;
+}
